@@ -1,22 +1,18 @@
-class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
-        n = len(nums)
-        expectedNums =[]
-        i=0
-        while i<n:
-            unique_element = nums[i]
-            if unique_element not in expectedNums:
-                expectedNums.append(unique_element)
-                i+=1
-                n=len(nums)
-            else:
-                del nums[i]
-                n=len(nums)
-                
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        out = [nums[0]]
+        for element in nums[1:] :
+            if element in out:
+                nums.remove(element)
+            if element not in out :
+                out.append(element)
             
-        
-
-                
-                
-        nums = expectedNums
-        return len(expectedNums)
+            
+       
+        return  len(out)
+           
+            
